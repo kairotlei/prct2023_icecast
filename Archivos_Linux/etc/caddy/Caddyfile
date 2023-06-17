@@ -1,0 +1,192 @@
+# The Caddyfile is an easy way to configure your Caddy web server.
+#
+# Unless the file starts with a global options block, the first
+# uncommented line is always the address of your site.
+#
+# To use your own domain name (with automatic HTTPS), first make
+# sure your domain's A/AAAA DNS records are properly pointed to
+# this machine's public IP, then replace ":80" below with your
+# domain name.
+
+radio.redacted.es.eu.org {
+      	# Set this path to your site's directory.
+      	root * /var/www/rad
+      
+      	# Enable the static file server.
+      	file_server
+       
+      	log {
+      		output file /var/log/caddy/gt4stat.log
+      	}
+       
+       header  {
+                # Enable HTTP Strict Transport Security (HSTS) to force clients to always
+                # connect via HTTPS (do not use if only testing)
+                # Strict-Transport-Security "max-age=31536000;"
+                # Enable cross-site filter (XSS) and tell browser to block detected attacks
+                X-XSS-Protection "1; mode=block"
+                # Prevent some browsers from MIME-sniffing a response away from the declared Content-Type
+                # X-Content-Type-Options "nosniff"
+                # Disallow the site to be rendered within a frame (clickjacking protection)
+                X-Frame-Options "DENY"
+                # Hide server header field
+                -Server
+                # Disable caching since https
+                # The cache should not store anything about the client request or server response.
+                Cache-Control "no-cache, no-store, must-revalidate"
+}
+       handle_errors {
+        @404 {
+            expression {http.error.status_code} == 404
+        }
+        rewrite @404 /404.html
+        file_server
+    }
+    reverse_proxy /sd.ogg localhost:8000
+}
+
+
+
+
+
+
+
+radio.miteam.es/ {
+        root * /var/www/html
+        file_server
+        log {
+                output file /var/log/caddy/RadioMiteam.log
+        }
+        
+        header  {
+                # Enable HTTP Strict Transport Security (HSTS) to force clients to always
+                # connect via HTTPS (do not use if only testing)
+                # Strict-Transport-Security "max-age=31536000;"
+                # Enable cross-site filter (XSS) and tell browser to block detected attacks
+                X-XSS-Protection "1; mode=block"
+                # Prevent some browsers from MIME-sniffing a response away from the declared Content-Type
+                X-Content-Type-Options "nosniff"
+                # Disallow the site to be rendered within a frame (clickjacking protection)
+                X-Frame-Options "DENY"
+                # Hide server header field
+                -Server
+                # Disable caching since https
+                # The cache should not store anything about the client request or server response.
+                Cache-Control "no-cache, no-store, must-revalidate"
+}
+  handle_errors {
+        @404 {
+            expression {http.error.status_code} == 404
+        }
+        rewrite @404 /404.html
+        file_server
+    }
+    reverse_proxy /lol.mp3 localhost:8000
+}
+
+
+
+
+
+radio.miteam.es:255 {
+        root * /var/www/html 
+        file_server 
+        log {
+                output file /var/log/caddy/RadioMiteam255.log
+        }
+        
+        header  {
+                # Enable HTTP Strict Transport Security (HSTS) to force clients to always
+                # connect via HTTPS (do not use if only testing)
+                # Strict-Transport-Security "max-age=31536000;"
+                # Enable cross-site filter (XSS) and tell browser to block detected attacks
+                X-XSS-Protection "1; mode=block"
+                # Prevent some browsers from MIME-sniffing a response away from the declared Content-Type
+                X-Content-Type-Options "nosniff"
+                # Disallow the site to be rendered within a frame (clickjacking protection)
+                X-Frame-Options "DENY"
+                # Hide server header field
+                -Server
+                # Disable caching since https
+                # The cache should not store anything about the client request or server response.
+                Cache-Control "no-cache, no-store, must-revalidate"
+}           
+    handle_errors {
+        @404 {
+            expression {http.error.status_code} == 404
+        }
+        rewrite @404 /404.html
+        file_server
+    }                                           
+}
+
+
+
+radio.redacted.es.eu.org:255 {
+       reverse_proxy localhost:8000
+      	# Enable the static file server.
+      	file_server
+       
+      	log {
+      		output file /var/log/caddy/gt4stat.log
+      	}
+       
+       header  {
+                # Enable HTTP Strict Transport Security (HSTS) to force clients to always
+                # connect via HTTPS (do not use if only testing)
+                # Strict-Transport-Security "max-age=31536000;"
+                # Enable cross-site filter (XSS) and tell browser to block detected attacks
+                X-XSS-Protection "1; mode=block"
+                # Prevent some browsers from MIME-sniffing a response away from the declared Content-Type
+                X-Content-Type-Options "nosniff"
+                # Disallow the site to be rendered within a frame (clickjacking protection)
+                X-Frame-Options "DENY"
+                # Hide server header field
+                -Server
+                # Disable caching since https
+                # The cache should not store anything about the client request or server response.
+                Cache-Control "no-cache, no-store, must-revalidate"
+}
+       handle_errors {
+        @404 {
+            expression {http.error.status_code} == 404
+        }
+        rewrite @404 /404.html
+        file_server
+    }
+    reverse_proxy /sd.ogg localhost:8000
+}
+
+redacted.es.eu.org {
+        root * /var/www/html
+        file_server
+        
+        header  {
+                # Enable HTTP Strict Transport Security (HSTS) to force clients to always
+                # connect via HTTPS (do not use if only testing)
+                # Strict-Transport-Security "max-age=31536000;"
+                # Enable cross-site filter (XSS) and tell browser to block detected attacks
+                X-XSS-Protection "1; mode=block"
+                # Prevent some browsers from MIME-sniffing a response away from the declared Content-Type
+                X-Content-Type-Options "nosniff"
+                # Disallow the site to be rendered within a frame (clickjacking protection)
+                X-Frame-Options "DENY"
+                # Hide server header field
+                -Server
+                # Disable caching since https
+                # The cache should not store anything about the client request or server response.
+                Cache-Control "no-cache, no-store, must-revalidate"
+}
+  handle_errors {
+        @404 {
+            expression {http.error.status_code} == 404
+        }
+        rewrite @404 /404.html
+        file_server
+    }
+    reverse_proxy /lol.mp3 localhost:8000
+}
+
+
+
+

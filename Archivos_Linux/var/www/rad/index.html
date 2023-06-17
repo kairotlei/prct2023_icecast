@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="alternate" hreflang="es" href="https://radio.redacted.es.eu.org">
+    <meta property="og:locale" content="es_ES">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Radio SITEIN</title>
+    <meta name="Description" content="Radio online con MIXXX e IceCast2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head> 
+
+
+<style>
+.collapsible {
+  background-color: #222;
+  color: #FFFF00;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #222;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+button {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #FFFF00;
+  text-decoration: underline;
+  cursor: pointer;
+}
+</style>
+
+
+
+<center>
+<body vlink="#CEF6CE" link="#FFFF00" background="a1.png" style="background-size: cover; background-repeat: no-repeat;display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; background-position: center;" alink="#F5DA81" body  bgcolor="#111">
+<font color="white" face="Arial">
+
+<h1>Radio SITEIN</h1>
+<h2>Mixxx (emisor audio)<br>IceCast2 (server radio Linux)<br>Sala 3D realizada con Unity3D y cientos de cubos estirados</h2>
+<h4>por K. SITEIN, CIFP Redacted</h4>
+<a href="https://radio.redacted.es.eu.org/WEBGL">DEMO SALA 3D</a>
+<br>
+<br>
+<audio crossorigin="anonymous" controls="controls" preload="none"><source src="https://radio.redacted.es.eu.org/sd.ogg" type="application/ogg"></source></audio>
+    
+<br>
+<br>
+<a href="https://openverse.org/image/d8b78075-6b58-4377-a5f1-34d4506bf25e?q=radio%20studio">Foto de fondo</a>
+<br>
+<br>
+
+<button style="width:30%;" class="collapsible">QR para móvil</button>
+<div style="width:20%;height:15%;"class="content">
+  <img src="qr.png" style=width:100%;height:100%;"></img>
+</div>
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+
+</center>
+</font>
+</body>
+</html>
